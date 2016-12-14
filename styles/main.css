@@ -20,7 +20,7 @@ html {
      position: relative;
      padding: 0.5rem;
      background-color: rgb(101,18,95);
-     z-index: 1; 
+     z-index: 1;
  }
 
  .navbar .logo {
@@ -28,7 +28,7 @@ html {
      left: 2rem;
      cursor: pointer;  /* produces the finger-pointer icon when you hover over the logo */
  }
- 
+
  .navbar .links-container {
      display: table;
      position: absolute;
@@ -54,14 +54,14 @@ html {
        text-decoration: none;
      cursor: pointer;
  }
- 
-    
 
-.links-container .navbar-link: hover{
+
+
+.links-container .navbar-link:hover{
   color: rgb(233,50,117);
 }
 
-.links-container .navbar-link: active{
+.links-container .navbar-link:active{
   background-color: white;
 }
 
@@ -73,7 +73,7 @@ html {
 
 
 .containter.narrow{
-  max-width: 56rem; 
+  max-width: 56rem;
 }
 
 
