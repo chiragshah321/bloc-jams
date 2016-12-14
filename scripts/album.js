@@ -30,6 +30,23 @@ var albumMarconi = {
 
 };
 
+var albumGangstarr = {
+    title: 'Moment of Truth',
+    artist: 'Gangstarr',
+    label: 'EM',
+    year: '1985',
+    abumArtUrl: 'assets/images/album_covers/17.png',
+    songs: [
+           { title: 'Robbin Hood Theory', duration: '1:01' },
+           { title: 'Work', duration: '5:01' },
+           { title: 'Royalty', duration: '3:21'},
+           { title: 'Above The Clouds', duration: '3:14' },
+           { title: 'Moment of Truth', duration: '2:15'}
+       ]
+
+};
+
+
 var createSongRow = function(songNumber, songName, songLength){
     var template =
       '<tr class = "album-view-song-item">'
@@ -42,14 +59,13 @@ var createSongRow = function(songNumber, songName, songLength){
 
 }
 
+var albumTitle = document.getElementsByClassName('album-view-title')[0];
+var albumArtist = document.getElementsByClassName('album-view-artist')[0];
+var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
+var albumImage = document.getElementsByClassName('album-cover-art')[0];
+var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
+
 var setCurrentAlbum = function(album) {
-
-     var albumTitle = document.getElementsByClassName('album-view-title')[0];
-     var albumArtist = document.getElementsByClassName('album-view-artist')[0];
-     var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
-     var albumImage = document.getElementsByClassName('album-cover-art')[0];
-     var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
-
 
      albumTitle.firstChild.nodeValue = album.title;
      albumArtist.firstChild.nodeValue = album.artist;
@@ -67,4 +83,20 @@ var setCurrentAlbum = function(album) {
 
  window.onload = function() {
      setCurrentAlbum(albumPicasso);
+
+     varAlbums = [albumPicasso, albumMarconi, albumGangstarr];
+     var index = 1;
+     albumImage.addEventListener('click',function(event) {
+
+           setCurrentAlbum(album[index]);
+           index++;
+           if (index == albums.length ){
+             index = 0
+           };
+
+
+           
+         )};
+
+
  };
