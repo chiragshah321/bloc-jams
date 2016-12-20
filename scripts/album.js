@@ -47,17 +47,17 @@ var albumGangstarr = {
 };
 
 
-var createSongRow = function(songNumber, songName, songLength){
-    var template =
-      '<tr class = "album-view-song-item">'
-      + '<td class = "song-item-number">' + songNumber +  '</td>'
-      + '<td class = "song-item-title">' + songName +  '</td>'
-      + '<td class = "song-item-duration">' + songLength +  '</td>'
+var createSongRow = function(songNumber, songName, songLength) {
+     var template =
+        '<tr class="album-view-song-item">'
+      + '  <td class="song-item-number">' + songNumber + '</td>'
+      + '  <td class="song-item-title">' + songName + '</td>'
+      + '  <td class="song-item-duration">' + songLength + '</td>'
       + '</tr>'
+      ;
 
-    return template;
-
-}
+     return template;
+ };
 
 var albumTitle = document.getElementsByClassName('album-view-title')[0];
 var albumArtist = document.getElementsByClassName('album-view-artist')[0];
@@ -84,19 +84,13 @@ var setCurrentAlbum = function(album) {
  window.onload = function() {
      setCurrentAlbum(albumPicasso);
 
-     varAlbums = [albumPicasso, albumMarconi, albumGangstarr];
+     var albums = [albumPicasso, albumMarconi, albumGangstarr];
      var index = 1;
      albumImage.addEventListener('click',function(event) {
-
-           setCurrentAlbum(album[index]);
+           setCurrentAlbum(albums[index]);
            index++;
            if (index == albums.length ){
-             index = 0
+               index = 0
            };
-
-
-           
-         )};
-
-
- };
+      )};
+};
