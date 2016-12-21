@@ -3,7 +3,7 @@ var albumPicasso = {
     artist: 'Pablo Picasso',
     label: 'Cubism',
     year: '1881',
-    abumArtUrl: 'assets/images/album_covers/01.png',
+    albumArtUrl: 'assets/images/album_covers/01.png',
      songs: [
          { title: 'Blue', duration: '4:26' },
          { title: 'Green', duration: '3:14' },
@@ -19,7 +19,7 @@ var albumMarconi = {
     artist: 'Guglielo Marconi',
     label: 'EM',
     year: '1909',
-    abumArtUrl: 'assets/images/album_covers/20.png',
+    albumArtUrl: 'assets/images/album_covers/20.png',
     songs: [
            { title: 'Hello, Operator?', duration: '1:01' },
            { title: 'Ring, ring, ring', duration: '5:01' },
@@ -36,7 +36,7 @@ var createSongRow = function(songNumber, songName, songLength){
       + '<td class = "song-item-number">' + songNumber +  '</td>'
       + '<td class = "song-item-title">' + songName +  '</td>'
       + '<td class = "song-item-duration">' + songLength +  '</td>'
-      + '</tr>'
+      + '</tr>' ;
 
     return template;
 
