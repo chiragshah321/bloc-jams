@@ -1,7 +1,7 @@
 var createSongRow = function(songNumber, songName, songLength) {
     var template =
        '<tr class="album-view-song-item">'
-     + '  <td class="song-item-number">' + songNumber + '</td>'
+     + '  <td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber + '</td>'
      + '  <td class="song-item-title">' + songName + '</td>'
      + '  <td class="song-item-duration">' + songLength + '</td>'
      + '</tr>'
@@ -9,6 +9,7 @@ var createSongRow = function(songNumber, songName, songLength) {
 
     var $row = $(template);
 
+<<<<<<< HEAD
     var clickHandler =  function(){
       var songNumber = parseInt($(this).attr('data-song-number'));
 
@@ -49,38 +50,37 @@ var createSongRow = function(songNumber, songName, songLength) {
           songNumberCell.html(songNumber);
         }
 
-        console.log("songNumber type is " + typeof songNumber + "\n and currentlyPlayingNumber type is " + typeof currentlyPlayingNumber);
-};
+    console.log("songNumber type is " + typeof songNumber + "\n and currentlyPlayingNumber type is " + typeof currentlyPlayingNumber);
 
     $row.find('song-item-number').click(clickHandler);
     $row.hover(onHover, offHover);
     return $row;
 };
 
-var $setCurrentAlbum = function(album) {
-     currentAlbum = album;
-     var $albumTitle = $('album-view-title')
-     var $albumArtist = $('album-view-artist');
-     var $albumReleaseInfo = $('album-view-release-info');
-     var $albumImage = $('album-cover-art');
-     var $albumSongList = $('album-view-song-list');
 
+var setCurrentAlbum = function(album) {
+    var $albumTitle = $('.album-view-title');
+    var $albumArtist = $('.album-view-artist');
+    var $albumReleaseInfo = $('.album-view-release-info');
+    var $albumImage = $('.album-cover-art');
+    var $albumSongList = $('.album-view-song-list');
 
-     $albumTitle.text(album.title);
-     $albumArtist.text(album.artist);
-     $albumReleaseInfo.text(album.year + ' ' + album.label);
-     $albumImage.attr('src', album.albumArtUrl);
+    $albumTitle.text(album.title);
+    $albumArtist.text(album.artist);
+    $albumReleaseInfo.text(album.year + ' ' + album.label);
+    $albumImage.attr('src', album.albumArtUrl);
 
-
-     $albumSongList.empty();
+    $albumSongList.empty();
 
 
      for (var i = 0; i < album.songs.length; i++) {
-         var $newRow =  createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
-         $albumSongList.append($newRow);
+       var $newRow = createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
+        $albumSongList.append($newRow);
      }
+
 };
 
+<<<<<<< HEAD
 var trackIndex = function(album, song){
   return album.songs.indexOf(song);
 };
