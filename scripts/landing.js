@@ -4,14 +4,14 @@ var animatePoints = function (){
 
     $(this).css({
         opacity: 1,
-        transform: 'scalex(1) translateY(0)'
+        transform: 'scaleX(1) translateY(0)'
     });
   };
 
   $.each($('.point'), revealPoint);
 };
 
-$(window).load(function(){
+$(window).load(function() {
 
   if ($(window).height() > 950) {
     animatePoints();
