@@ -136,6 +136,7 @@ window.onload = function() {
                 songItem.innerHTML = playButtonTemplate;
             }
  }
+
 });
 
       for (i = 0; i < songRows.length; i++) {
@@ -155,4 +156,4 @@ window.onload = function() {
 
             }
 
- }
+}
