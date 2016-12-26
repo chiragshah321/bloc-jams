@@ -1,0 +1,23 @@
+var setSong = function(songNumber){
+
+    if (currentlyPlayingSongNumber !== null) {
+      var currentlyPlayingCell = $('.song-item-number[data-song-number="' + currentlyPlayingSongNumber + '"]');
+      currentlyPlayingCell.html(currentlyPlayingSongNumber);
+    }
+
+    if (currentlyPlayingSongNumber != songNumber) {
+        currentlyPlayingSongNumber = songNumber;
+        currentSongFromAlbum = currentAlbum.songs[songNumber-1];
+    }
+
+    else if (currentlyPlayingSongNumber === songNumber) {
+          currentlyPlayingSongNumber = null;
+          currentSongFromAlbum = null;
+
+    }
+
+};
+
+var getSongNumberCell = function(number){
+    return $(".song-item-number")
+};
