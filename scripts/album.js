@@ -1,6 +1,6 @@
 var setSong =  function(songNumber) {
   currentlyPlayingSongNumber = parseInt(songNumber);
-  currentSongFromAlbum = currentAlbum.songs[songNumber -1];
+  currentSongFromAlbum = currentAlbum.songs[currentlyPlayingSongNumber-1];
 };
 
 var getSongNumberCell = function(number) {
@@ -8,6 +8,7 @@ var getSongNumberCell = function(number) {
 }
 
 var createSongRow = function(songNumber, songName, songLength) {
+
      var template =
        '<tr class="album-view-song-item">'
      + '  <td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber + '</td>'
@@ -50,7 +51,7 @@ var createSongRow = function(songNumber, songName, songLength) {
         if (songNumber != currentlyPlayingSongNumber) {
             songNumberCell.html(playButtonTemplate);
           }
-};
+    };
 
     var offHover = function(event){
         var songNumberCell = $(this).find('song-item-number');
@@ -59,12 +60,15 @@ var createSongRow = function(songNumber, songName, songLength) {
         if (songNumber != currentlyPlayingSongNumber) {
           songNumberCell.html(songNumber);
         }
+      
+    }; 
 
     console.log("songNumber type is " + typeof songNumber + "\n and currentlyPlayingNumber type is " + typeof currentlyPlayingNumber);
 
     $row.find('song-item-number').click(clickHandler);
     $row.hover(onHover, offHover);
     return $row;
+      
 };
 
 
@@ -91,6 +95,7 @@ var $setCurrentAlbum = function(album) {
      }
 
 };
+
 
 var trackIndex = function(album, song){
   return album.songs.indexOf(song);
