@@ -2,12 +2,9 @@ var setSong =  function(songNumber) {
     if (currentSoundFile) {
          currentSoundFile.stop();
      } 
-  
-    currentlyPlayingSongNumber = parseInt(songNumber);
-    currentSongFromAlbum = currentAlbum.songs[songNumber - 1]; 
-  
-    currentSoundFile = new buzz.sound(currentSongFromAlbum.audioUrl, {
-      
+    currentlyPlayingSongNumber = (songNumber);
+    currentSongFromAlbum = currentAlbum.songs[songNumber - 1];   
+    currentSoundFile = new buzz.sound(currentSongFromAlbum.audioUrl, {     
         formats: ['mp3'], 
         preload: true
     });
@@ -214,7 +211,7 @@ var togglePlayFromPlayerBar = function() {
          currentSoundFile.play();
     }
       
-    else if (currentSoundFile.play()) {  
+     else  {  
          var currentlyPlayingCell = getSongNumberCell(currentlyPlayingSongNumber);
          currentlyPlayingCell.html(playButtonTemplate);
          $playButton.html(playerBarPlayButton);
