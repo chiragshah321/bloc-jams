@@ -203,16 +203,14 @@ var updatePlayerBarSong = function() {
 
 //function requested in assignment
 var togglePlayFromPlayerBar = function() {
-    
+   var currentlyPlayingCell = getSongNumberCell(currentlyPlayingSongNumber);  
     if (currentSoundFile.isPaused()) {
-         var currentlyPlayingCell = getSongNumberCell(currentlyPlayingSongNumber);
          currentlyPlayingCell.html(pauseButtonTemplate);
          $playButton.html(playerBarPauseButton);
          currentSoundFile.play();
     }
       
      else  {  
-         var currentlyPlayingCell = getSongNumberCell(currentlyPlayingSongNumber);
          currentlyPlayingCell.html(playButtonTemplate);
          $playButton.html(playerBarPlayButton);
          currentSoundFile.pause(); 
