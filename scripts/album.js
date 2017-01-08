@@ -105,6 +105,7 @@ var createSongRow = function(songNumber, songName, songLength) {
 
     console.log("songNumber type is " + typeof songNumber + "\n and currentlyPlayingNumber type is " + typeof currentlyPlayingNumber);
 
+    filterTimeCode(songLength); 
     $row.find('.song-item-number').click(clickHandler);
     $row.hover(onHover, offHover);
     return $row;
@@ -277,10 +278,31 @@ var updateSeekBarWhileSongPlays = function() {
              var $seekBar = $('.seek-control .seek-bar');
  
              updateSeekPercentage($seekBar, seekBarFillRatio);
+             filterTimeCode(setCurrentTimeInPlayerBar); 
+             filterTimeCode(setTotalTimeInPlayerBar);  
       });
     }
 };
 
+//work for assignment
+var setCurrentTimeInPlayerBar = function(currentTime) {
+  $('.current-time').text(currentSoundFile.currentTime)    
+}; 
+
+var setTotalTimeInPlayerBar = function(totalTime) {
+  $('.total-time').text(currentSoundFile.length)
+};
+
+var filterTimeCode = function(timeInSeconds) {
+  var songNumberCell = $(this).find('.song-item-duration');
+  var secondsInNumbers = parseFloat(songNumberCell.attr('data-song-duration'));
+
+  
+  var minutes = Math.floor(secondsInNumbers, 1);
+  var seconds = Math.floor(0, secondsInNumbers)
+      
+  return minutes 
+};
 
 
 var playButtonTemplate = '<a class="album-song-button"><span class=" ion-play"></a></span>'
