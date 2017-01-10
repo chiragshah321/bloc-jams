@@ -38,7 +38,7 @@ var createSongRow = function(songNumber, songName, songLength) {
        '<tr class="album-view-song-item">'
      + '  <td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber + '</td>'
      + '  <td class="song-item-title">' + songName + '</td>'
-     + '  <td class="song-item-duration">' + songLength + '</td>'
+     + '  <td class="song-item-duration">' + filterTimeCode(songLength) + '</td>'
      + '</tr>'
      ;
 
@@ -268,6 +268,8 @@ var updatePlayerBarSong = function() {
     $('.currently-playing .artist-name').text(currentAlbum.artist);
     $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum.title + " - " + currentAlbum.artist);
     $('.main-controls .play-pause').html(playerBarPauseButton);
+  
+    setTotalTimeInPlayerBar(currentSoundFile.totalTime);
 
 };
 
@@ -278,30 +280,25 @@ var updateSeekBarWhileSongPlays = function() {
              var $seekBar = $('.seek-control .seek-bar');
  
              updateSeekPercentage($seekBar, seekBarFillRatio);
-             filterTimeCode(setCurrentTimeInPlayerBar); 
-             filterTimeCode(setTotalTimeInPlayerBar);  
+             setCurrentTimeInPlayerBar(currentSoundFile.currentTime); 
       });
     }
 };
 
-//work for assignment
+//work for assignment - this is where the issue based on what I think
 var setCurrentTimeInPlayerBar = function(currentTime) {
-  $('.current-time').text(currentSoundFile.currentTime)    
+  $('.current-time').text(currentTime);    
 }; 
 
 var setTotalTimeInPlayerBar = function(totalTime) {
-  $('.total-time').text(currentSoundFile.length)
+  $('.total-time').text(totalTime); 
 };
 
 var filterTimeCode = function(timeInSeconds) {
-  var songNumberCell = $(this).find('.song-item-duration');
-  var secondsInNumbers = parseFloat(songNumberCell.attr('data-song-duration'));
-
-  
-  var minutes = Math.floor(secondsInNumbers, 1);
-  var seconds = Math.floor(0, secondsInNumbers)
+  var timeInMinutes = Math.floor(timeInSeconds / 60); 
+  var remainingSeconds = Math.floor(timeInSeconds - (timeInMinutes * 60)); 
       
-  return minutes 
+  return timeInMinutes + ":" + remainingSeconds; 
 };
 
 
