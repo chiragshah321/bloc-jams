@@ -285,7 +285,7 @@ var updateSeekBarWhileSongPlays = function() {
     }
 };
 
-//work for assignment - this is where the issue based on what I think
+//work for assignment - this is where the issue is based on what I think
 var setCurrentTimeInPlayerBar = function(currentTime) {
   $('.current-time').text(currentTime);    
 }; 
