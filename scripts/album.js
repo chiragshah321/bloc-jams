@@ -268,8 +268,8 @@ var updatePlayerBarSong = function() {
     $('.currently-playing .artist-name').text(currentAlbum.artist);
     $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum.title + " - " + currentAlbum.artist);
     $('.main-controls .play-pause').html(playerBarPauseButton);
-  
-    setTotalTimeInPlayerBar(currentSoundFile.totalTime);
+    debugger
+    setTotalTimeInPlayerBar(currentSoundFile.getDuration());
 
 };
 
@@ -280,18 +280,19 @@ var updateSeekBarWhileSongPlays = function() {
              var $seekBar = $('.seek-control .seek-bar');
  
              updateSeekPercentage($seekBar, seekBarFillRatio);
-             setCurrentTimeInPlayerBar(currentSoundFile.currentTime); 
+             setCurrentTimeInPlayerBar(filterTimeCode(currentSoundFile.getTime())); 
       });
     }
 };
 
-//work for assignment - this is where the issue is based on what I think
+
 var setCurrentTimeInPlayerBar = function(currentTime) {
   $('.current-time').text(currentTime);    
 }; 
 
 var setTotalTimeInPlayerBar = function(totalTime) {
-  $('.total-time').text(totalTime); 
+  debugger 
+  $('.total-time').text(totalTime);  
 };
 
 var filterTimeCode = function(timeInSeconds) {
