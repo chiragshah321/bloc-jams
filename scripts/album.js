@@ -268,8 +268,8 @@ var updatePlayerBarSong = function() {
     $('.currently-playing .artist-name').text(currentAlbum.artist);
     $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum.title + " - " + currentAlbum.artist);
     $('.main-controls .play-pause').html(playerBarPauseButton);
-    debugger
-    setTotalTimeInPlayerBar(currentSoundFile.getDuration());
+    
+    setTotalTimeInPlayerBar((filterTimeCode(currentSoundFile.getDuration()));
 
 };
 
@@ -285,13 +285,11 @@ var updateSeekBarWhileSongPlays = function() {
     }
 };
 
-
 var setCurrentTimeInPlayerBar = function(currentTime) {
   $('.current-time').text(currentTime);    
 }; 
 
 var setTotalTimeInPlayerBar = function(totalTime) {
-  debugger 
   $('.total-time').text(totalTime);  
 };
 
@@ -299,8 +297,14 @@ var filterTimeCode = function(timeInSeconds) {
   var timeInMinutes = Math.floor(timeInSeconds / 60); 
   var remainingSeconds = Math.floor(timeInSeconds - (timeInMinutes * 60)); 
       
-  return timeInMinutes + ":" + remainingSeconds; 
-};
+  if (remainingSeconds < 10){
+      return timeInMinutes + ":0" + remainingSeconds; 
+  } else {  
+      return timeInMinutes + ":" + remainingSeconds;  
+  }
+  
+}
+
 
 
 var playButtonTemplate = '<a class="album-song-button"><span class=" ion-play"></a></span>'
